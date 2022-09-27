@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.google.android.material.appbar.AppBarLayout
         android:background="#3e3ee2"
         android:id="@+id/appbarlayoutsearchbaihat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarsearchbaihat"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-        </androidx.appcompat.widget.Toolbar>
+            android:layout_height="?attr/actionBarSize"
+            android:background="#211626"></androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/appbarlayoutsearchbaihat"
