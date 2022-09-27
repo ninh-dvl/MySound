@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -16,10 +17,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aptech.team5.mysound.Adapter.SearchBaiHatAdapter;
+import com.aptech.team5.mysound.Model.Song;
 import com.aptech.team5.mysound.R;
+import com.aptech.team5.mysound.Service.APIService;
+import com.aptech.team5.mysound.Service.DataService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_Search extends Fragment {
     View view;
@@ -31,7 +43,7 @@ public class Fragment_Search extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.fragment_search,container,false);
+        view = inflater.inflate(R.layout.fragment_search,container,false);
         toolbar = view.findViewById(R.id.toolbarsearchbaihat);
         recyclerViewsearchbaihat = view.findViewById(R.id.recyclerViewsearchbaihat);
         txtkhongcodulieu = view.findViewById(R.id.textviewkhongcodulieu);
@@ -50,13 +62,40 @@ public class Fragment_Search extends Fragment {
         searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                Log.d("BBB",s);
+                SearchTuKhoaBaiHat(s);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+    private void SearchTuKhoaBaiHat(String query){
+        DataService dataservice = APIService.getService();
+        Call<List<Song>> callback = dataservice.GetSearchBaihat(query);
+        ((Call<List<Song>>) callback).enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                ArrayList<Song> arraysong = (ArrayList<Song>) response.body();
+                if(arraysong.size() > 0){
+                    searchBaiHatAdapter = new SearchBaiHatAdapter(getActivity(),arraysong);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                    recyclerViewsearchbaihat.setLayoutManager(linearLayoutManager);
+                    recyclerViewsearchbaihat.setAdapter(searchBaiHatAdapter);
+                    txtkhongcodulieu.setVisibility(View.GONE);
+                    recyclerViewsearchbaihat.setVisibility(View.VISIBLE);
+                }else{
+                    recyclerViewsearchbaihat.setVisibility(View.GONE);
+                    txtkhongcodulieu.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+
             }
         });
     }

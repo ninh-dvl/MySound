@@ -3,7 +3,6 @@ package com.aptech.team5.mysound.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,45 +10,49 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aptech.team5.mysound.Model.Song;
 import com.aptech.team5.mysound.R;
 import com.aptech.team5.mysound.Service.APIService;
 import com.aptech.team5.mysound.Service.DataService;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapter.ViewHolder>{
     Context context;
-    ArrayList<Baihat> = mangbaihat;
+    ArrayList<Song> arraysong;
 
-    public SearchBaiHatAdapter(Context context, ArrayLis<Baihat> mangbaihat){
+    public SearchBaiHatAdapter(Context context, ArrayList<Song> arraysong) {
         this.context = context;
-        this.mangbaihat = mangbaihat;
+        this.arraysong = arraysong;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.dong_search_bai_hat,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
-        Baihat baihat = mangbaihat.get(position);
-        holder.txtTenbaihat.setText(baihat.getTenbaihat());
-        holder.txtCasi.setText(baihat.getCasi());
-        Picasso.with(context).load(baihat.getLinkbaihat()).into(holder.imgbaihat);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Song baihat = arraysong.get(position);
+        holder.txtTenbaihat.setText(baihat.getNameSong());
+        holder.txtCasi.setText(baihat.getArtist());
+        Picasso.with(context).load(baihat.getLinkSong()).into(holder.imgbaihat);
     }
 
     @Override
-    public int getItemCount(){
-        return mangbaihat.size();
+    public int getItemCount() {
+        return arraysong.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -57,38 +60,39 @@ public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapte
         ImageView imgbaihat,imgluotthich;
         public ViewHolder(View itemView){
             super(itemView);
+            imgbaihat = itemView.findViewById(R.id.imagesearchbaihat);
             txtTenbaihat = itemView.findViewById(R.id.textviewsearchtenbaihat);
             txtCasi = itemView.findViewById(R.id.textviewsearchcasi);
-            imgbaihat = itemView.findViewById(R.id.imagesearchbaihat);
             imgluotthich = itemView.findViewById(R.id.imagesearchluotthich);
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
-                public void onClick(View v){
-                    Intent intent = new Intent(context, PlayNhacActivity.class);
-                    intent.putExtra("cakhuc",mangbaihat.get(getPosition()));
+                public void onClick(View view){
+//                    Intent intent = new Intent(context, PlayNhacActivity.class);
+//                    intent.putExtra("cakhuc",arraysong.get(getPosition()));
                 }
             });
             imgluotthich.setOnClickListener(new View.OnClickListener(){
                 @Override
-                public void OnClick(View v){
+                public void onClick(View view) {
                     imgluotthich.setImageResource(R.drawable.heartfull);
                     DataService dataservice = APIService.getService();
-                    Call<String> callback = dataservice.UpdateLuotThich("1",mangbaihat.get(getPosition()).getIdbaihat());
-                    callback.enqueue(new Callback<String>(){
-                       @Override
-                       public void onResponse(Call<String> call, Response<String> response){
-                           String ketqua = response.body();
-                           if (ketqua.equals("success")){
-                               Toast.makeText(context,"Da thich",Toast.LENGTH_SHORT).show();
-                           }else{
-                               Toast.makeText(context, "Loi!",Toast.LENGTH_SHORT).show();
-                           }
-                       }
-                       @Override
-                        public void onFailure(Call<String> call, Throwable t){
-
-                       }
-                    });
+//                    Call<String> callback = dataservice.UpdateLuotThich("1",arraysong.get(getPosition()).getIdSong());
+//                    callback.enqueue(new Callback<String>() {
+//                        @Override
+//                        public void onResponse(Call<String> call, Response<String> response) {
+//                            String ketqua = response.body();
+//                            if (ketqua.equals("success")){
+//                                Toast.makeText(context,"Da thich",Toast.LENGTH_SHORT).show();
+//                            }else{
+//                                Toast.makeText(context, "Loi!",Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<String> call, Throwable t) {
+//                            t.getMessage();
+//                        }
+//                    });
                     imgluotthich.setEnabled(false);
                 }
             });

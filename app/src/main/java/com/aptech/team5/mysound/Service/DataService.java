@@ -9,7 +9,10 @@ import com.aptech.team5.mysound.Model.TopicCategory;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface DataService {
 
@@ -23,4 +26,8 @@ public interface DataService {
     Call<List<Album>> getAlbum();
     @GET("likes.php")
     Call<List<Song>> getSong();
+
+    @FormUrlEncoded
+    @POST("searchbaihat.php")
+    Call<List<Song>> GetSearchBaihat(@Field("tukhoa") String tukhoa);
 }
