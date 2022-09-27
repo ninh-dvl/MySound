@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="3dp"
+        android:id="@+id/imageviewsong"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageviewsong"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/textviewsong"
+        android:text="Name Song"
+        android:textSize="18sp"
+        android:textColor="#363636"
+        android:ellipsize="end"
+        android:maxLines="1"
+        />
+
+    <TextView
+        android:textColor="#8c8a8a"
+        android:textSize="18sp"
+        android:text="Artistttttttttttttttttttttttttttttttttttttttttttttttt"
+        android:singleLine="true"
+        android:layout_toRightOf="@id/imageviewsong"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/textviewsong"
+        android:id="@+id/textviewartistsong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="270dp"/>
+
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:src="@drawable/heart"
+        android:id="@+id/imageviewlikes"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+</RelativeLayout>

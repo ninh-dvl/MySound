@@ -19,5 +19,20 @@
             android:id="@+id/fragmentplaylist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.aptech.team5.mysound.Fragment.Fragment_Topic_Category"
+            android:id="@+id/fragmenttopiccategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.aptech.team5.mysound.Fragment.Fragment_Album"
+            android:id="@+id/fragmentalbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.aptech.team5.mysound.Fragment.Fragment_Song"
+            android:id="@+id/fragmentsong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>

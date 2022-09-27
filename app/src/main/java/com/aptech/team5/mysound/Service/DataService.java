@@ -1,7 +1,10 @@
 package com.aptech.team5.mysound.Service;
 
 import com.aptech.team5.mysound.Model.Advertisement;
+import com.aptech.team5.mysound.Model.Album;
 import com.aptech.team5.mysound.Model.PlayList;
+import com.aptech.team5.mysound.Model.Song;
+import com.aptech.team5.mysound.Model.TopicCategory;
 
 import java.util.List;
 
@@ -14,4 +17,10 @@ public interface DataService {
     Call<List<Advertisement>> GetDataBanner();
     @GET("playlist.php")
     Call<List<PlayList>> getPlayListCurrentDay();
+    @GET("topicandcategory.php")
+    Call<TopicCategory> getTopicCategoryMusic();
+    @GET("album.php")
+    Call<List<Album>> getAlbum();
+    @GET("likes.php")
+    Call<List<Song>> getSong();
 }

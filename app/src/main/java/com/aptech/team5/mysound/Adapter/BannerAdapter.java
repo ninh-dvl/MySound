@@ -1,6 +1,7 @@
 package com.aptech.team5.mysound.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.aptech.team5.mysound.Activity.SongListActivity;
 import com.aptech.team5.mysound.Model.Advertisement;
 import com.aptech.team5.mysound.R;
 import com.squareup.picasso.Picasso;
@@ -50,6 +52,14 @@ public class BannerAdapter extends PagerAdapter {
         txttitlesongbanner.setText(arrayListBanner.get(position).getNameSong());
         txtcontent.setText(arrayListBanner.get(position).getContent());
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SongListActivity.class);
+                intent.putExtra("banner",arrayListBanner.get(position));
+                context.startActivity(intent);
+            }
+        });
         container.addView(view);
         return view;
     }
