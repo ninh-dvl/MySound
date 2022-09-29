@@ -2,13 +2,11 @@ package com.aptech.team5.mysound.Adapter;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,15 +19,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapter.ViewHolder>{
+public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.ViewHolder>{
     Context context;
     ArrayList<Song> arraysong;
 
-    public SearchBaiHatAdapter(Context context, ArrayList<Song> arraysong) {
+    public SearchSongAdapter(Context context, ArrayList<Song> arraysong) {
         this.context = context;
         this.arraysong = arraysong;
     }
@@ -38,7 +32,7 @@ public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.dong_search_bai_hat,parent,false);
+        View view = inflater.inflate(R.layout.dong_search_song,parent,false);
         return new ViewHolder(view);
     }
 
@@ -47,7 +41,7 @@ public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapte
         Song baihat = arraysong.get(position);
         holder.txtTenbaihat.setText(baihat.getNameSong());
         holder.txtCasi.setText(baihat.getArtist());
-        Picasso.with(context).load(baihat.getLinkSong()).into(holder.imgbaihat);
+        Picasso.with(context).load(baihat.getImageSong()).into(holder.imgbaihat);
     }
 
     @Override
@@ -60,7 +54,7 @@ public class SearchBaiHatAdapter extends RecyclerView.Adapter<SearchBaiHatAdapte
         ImageView imgbaihat,imgluotthich;
         public ViewHolder(View itemView){
             super(itemView);
-            imgbaihat = itemView.findViewById(R.id.imagesearchbaihat);
+            imgbaihat = itemView.findViewById(R.id.imagebaihat);
             txtTenbaihat = itemView.findViewById(R.id.textviewsearchtenbaihat);
             txtCasi = itemView.findViewById(R.id.textviewsearchcasi);
             imgluotthich = itemView.findViewById(R.id.imagesearchluotthich);

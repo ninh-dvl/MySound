@@ -5,7 +5,7 @@
     android:background="#160f19">
 
     <ImageView
-        android:id="@+id/imagesearchbaihat"
+        android:id="@+id/imagebaihat"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="3dp"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="7dp"
-        android:layout_toRightOf="@id/imagesearchbaihat"
+        android:layout_toRightOf="@id/imagebaihat"
         android:ellipsize="end"
         android:maxWidth="250dp"
         android:singleLine="true"
@@ -35,7 +35,7 @@
         android:layout_below="@id/textviewsearchtenbaihat"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="7dp"
-        android:layout_toRightOf="@id/imagesearchbaihat"
+        android:layout_toRightOf="@id/imagebaihat"
         android:ellipsize="end"
         android:maxWidth="250dp"
         android:singleLine="true"

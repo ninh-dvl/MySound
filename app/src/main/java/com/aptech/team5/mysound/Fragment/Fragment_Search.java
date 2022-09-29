@@ -1,14 +1,12 @@
 package com.aptech.team5.mysound.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -20,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aptech.team5.mysound.Adapter.SearchBaiHatAdapter;
+import com.aptech.team5.mysound.Adapter.SearchSongAdapter;
 import com.aptech.team5.mysound.Model.Song;
 import com.aptech.team5.mysound.R;
 import com.aptech.team5.mysound.Service.APIService;
@@ -38,7 +36,7 @@ public class Fragment_Search extends Fragment {
     Toolbar toolbar;
     RecyclerView recyclerViewsearchbaihat;
     TextView txtkhongcodulieu;
-    SearchBaiHatAdapter searchBaiHatAdapter;
+    SearchSongAdapter searchSongAdapter;
 
     @Nullable
     @Override
@@ -81,10 +79,10 @@ public class Fragment_Search extends Fragment {
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 ArrayList<Song> arraysong = (ArrayList<Song>) response.body();
                 if(arraysong.size() > 0){
-                    searchBaiHatAdapter = new SearchBaiHatAdapter(getActivity(),arraysong);
+                    searchSongAdapter = new SearchSongAdapter(getActivity(),arraysong);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                     recyclerViewsearchbaihat.setLayoutManager(linearLayoutManager);
-                    recyclerViewsearchbaihat.setAdapter(searchBaiHatAdapter);
+                    recyclerViewsearchbaihat.setAdapter(searchSongAdapter);
                     txtkhongcodulieu.setVisibility(View.GONE);
                     recyclerViewsearchbaihat.setVisibility(View.VISIBLE);
                 }else{
