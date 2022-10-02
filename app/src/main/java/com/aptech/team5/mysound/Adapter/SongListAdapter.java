@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aptech.team5.mysound.Model.Song;
 import com.aptech.team5.mysound.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,8 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
         Song song = arraysong.get(position);
         holder.txtartist.setText(song.getArtist());
         holder.txtnamesong.setText(song.getNameSong());
-        holder.txtindex.setText(position + 1 + "");
+        Picasso.with(context).load(song.getImageSong()).into(holder.imgsong);
+//        holder.txtindex.setText(position + 1 + "");
     }
 
     @Override
@@ -47,11 +49,12 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtindex,txtnamesong,txtartist;
-        ImageView imglikes;
+        ImageView imgsong,imglikes;
         public ViewHolder(View itemView) {
             super(itemView);
+            imgsong = itemView.findViewById(R.id.imageviewsonglistindex);
             txtartist = itemView.findViewById(R.id.textviewartist);
-            txtindex = itemView.findViewById(R.id.textviewsonglistindex);
+//            txtindex = itemView.findViewById(R.id.textviewsonglistindex);
             txtnamesong= itemView.findViewById(R.id.textviewnamesong);
             imglikes = itemView.findViewById(R.id.imageviewlikessonglist);
         }

@@ -45,7 +45,6 @@ public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.Vi
     }
 
     @Override
-    @Override
     public int getItemCount() {
         return arraysong.size();
     }
