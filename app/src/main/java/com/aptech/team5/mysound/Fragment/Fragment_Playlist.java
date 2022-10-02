@@ -1,10 +1,12 @@
 package com.aptech.team5.mysound.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -14,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.aptech.team5.mysound.Activity.ListPlayListActivity;
+import com.aptech.team5.mysound.Activity.SongListActivity;
 import com.aptech.team5.mysound.Adapter.PlaylistAdapter;
 import com.aptech.team5.mysound.Model.PlayList;
 import com.aptech.team5.mysound.R;
@@ -41,6 +45,14 @@ public class Fragment_Playlist extends Fragment {
       txttitleplaylist = view.findViewById(R.id.textviewtitleplaylist);
       txtviewseemoreplaylist = view.findViewById(R.id.textviewmoreplaylist);
       GetData();
+
+      txtviewseemoreplaylist.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent intent = new Intent(getActivity(), ListPlayListActivity.class);
+              startActivity(intent);
+          }
+      });
       return view;
     }
 
@@ -54,6 +66,14 @@ public class Fragment_Playlist extends Fragment {
                 playlistAdapter = new PlaylistAdapter(getActivity(), android.R.layout.simple_list_item_1,arrayplaylist);
                 lvplaylist.setAdapter(playlistAdapter);
                 setListViewHeightBasedOnChildren(lvplaylist);
+                lvplaylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        Intent intent = new Intent(getActivity(), SongListActivity.class);
+                        intent.putExtra("itemplaylist",arrayplaylist.get(position));
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override

@@ -26,7 +26,6 @@
         android:textColor="#8c8a8a"
         android:textSize="18sp"
         android:text="Artistttttttttttttttttttttttttttttttttttttttttttttttt"
-        android:singleLine="true"
         android:layout_toRightOf="@id/imageviewsong"
         android:layout_marginTop="7dp"
         android:layout_marginLeft="5dp"
@@ -45,3 +44,5 @@
         android:layout_width="30dp"
         android:layout_height="30dp"/>
 </RelativeLayout>
+
+<!--    android:singleLine="true"-->
