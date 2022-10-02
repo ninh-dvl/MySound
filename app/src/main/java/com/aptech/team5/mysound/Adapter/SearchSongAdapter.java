@@ -32,7 +32,7 @@ public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.dong_search_song,parent,false);
+        View view = inflater.inflate(R.layout.inline_search_song,parent,false);
         return new ViewHolder(view);
     }
 
@@ -44,6 +44,7 @@ public class SearchSongAdapter extends RecyclerView.Adapter<SearchSongAdapter.Vi
         Picasso.with(context).load(baihat.getImageSong()).into(holder.imgbaihat);
     }
 
+    @Override
     @Override
     public int getItemCount() {
         return arraysong.size();
