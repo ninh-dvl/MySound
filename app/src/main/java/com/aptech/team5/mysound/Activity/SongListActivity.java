@@ -65,7 +65,7 @@ public class SongListActivity extends AppCompatActivity {
             GetDataAdvertisement(advertisement.getIdAdvertisement());
         }
         if(playList != null && !playList.getName().equals("")){
-            setValueInView(playList.getIdPlayList(),playList.getImageIcon());
+            setValueInView(playList.getName(),playList.getImageIcon());
             GetDataPlaylist(playList.getIdPlayList());
         }
     }
