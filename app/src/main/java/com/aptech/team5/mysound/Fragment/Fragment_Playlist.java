@@ -59,9 +59,9 @@ public class Fragment_Playlist extends Fragment {
                 setListViewHeightBasedOnChildren(lvplaylist);
                 lvplaylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                         Intent intent = new Intent(getActivity(), SongListActivity.class);
-                        intent.putExtra("itemplaylist",arrayplaylist.get(i));
+                        intent.putExtra("itemplaylist",arrayplaylist.get(position));
                         startActivity(intent);
                     }
                 });

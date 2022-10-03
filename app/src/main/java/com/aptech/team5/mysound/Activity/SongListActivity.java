@@ -65,14 +65,14 @@ public class SongListActivity extends AppCompatActivity {
             GetDataAdvertisement(advertisement.getIdAdvertisement());
         }
         if(playList != null && !playList.getName().equals("")){
-            setValueInView(playList.getName(),playList.getBackground());
+            setValueInView(playList.getIdPlayList(),playList.getImageIcon());
             GetDataPlaylist(playList.getIdPlayList());
         }
     }
 
     private void GetDataPlaylist(String idplaylist){
         DataService dataService = APIService.getService();
-        Call<List<Song>> callback = dataService.getSongListPlayList(idplaylist);
+        Call<List<Song>> callback = dataService.getSongListPLayList(idplaylist);
         callback.enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
@@ -108,7 +108,7 @@ public class SongListActivity extends AppCompatActivity {
 
     private void GetDataAdvertisement(String idadvertisement){
         DataService dataService = APIService.getService();
-        retrofit2.Call<List<Song>> callback = dataService.getSongListAdvertisement(idadvertisement);
+        Call<List<Song>> callback = dataService.getSongListAdvertisement(idadvertisement);
         callback.enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(retrofit2.Call<List<Song>> call, Response<List<Song>> response) {

@@ -41,9 +41,7 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.ViewHo
     }
 
     @Override
-    public int getItemCount() {
-        return arraysong.size();
-    }
+    public int getItemCount() { return arraysong.size(); }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtindex,txtnamesong,txtartist;
