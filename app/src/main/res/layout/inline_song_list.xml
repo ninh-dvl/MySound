@@ -33,7 +33,7 @@
             android:textSize="20sp"
             android:textColor="#979797"
             android:ellipsize="end"
-            android:maxWidth="270dp"
+            android:maxWidth="230dp"
             android:layout_toRightOf="@id/imageviewsonglistindex"
             android:layout_below="@id/textviewnamesong"
             android:id="@+id/textviewartist"
