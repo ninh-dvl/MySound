@@ -4,8 +4,10 @@ package com.aptech.team5.mysound.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Album {
+
+public class Album implements Serializable {
 
 @SerializedName("IdAlbum")
 @Expose

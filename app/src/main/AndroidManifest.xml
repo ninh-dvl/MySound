@@ -16,6 +16,27 @@
         android:theme="@style/Theme.MySound"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.ListAlbumActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.ListCategoryByTopicActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.ListTopicActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Activity.ListPlayListActivity"
             android:exported="false">
             <meta-data

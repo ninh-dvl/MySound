@@ -1,5 +1,6 @@
 package com.aptech.team5.mysound.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.aptech.team5.mysound.Activity.ListCategoryByTopicActivity;
+import com.aptech.team5.mysound.Activity.ListTopicActivity;
+import com.aptech.team5.mysound.Activity.SongListActivity;
 import com.aptech.team5.mysound.Model.Category;
 import com.aptech.team5.mysound.Model.Topic;
 import com.aptech.team5.mysound.Model.TopicCategory;
@@ -39,6 +43,13 @@ public class Fragment_Topic_Category extends Fragment {
         view = inflater.inflate(R.layout.fragment_topic_category,container,false);
         horizontalScrollView = view.findViewById(R.id.horizontalScrollview);
         txtseemoretopiccategory = view.findViewById(R.id.textviewseemore);
+        txtseemoretopiccategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ListTopicActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
@@ -70,6 +81,15 @@ public class Fragment_Topic_Category extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+                    int finalI = i;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), ListCategoryByTopicActivity.class);
+                            intent.putExtra("topic",topicArrayList.get(finalI));
+                            startActivity(intent);
+                        }
+                    });
                 }
                 for (int j = 0; j < (topicArrayList.size()); j++){
                     CardView cardView = new CardView(getActivity());
@@ -82,6 +102,16 @@ public class Fragment_Topic_Category extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+
+                    int finalJ = j;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), SongListActivity.class);
+                            intent.putExtra("idcategory",categoryArrayList.get(finalJ));
+                            startActivity(intent);
+                        }
+                    });
                 }
                 horizontalScrollView.addView(linearLayout);
             }

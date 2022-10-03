@@ -12,59 +12,57 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aptech.team5.mysound.Activity.SongListActivity;
-import com.aptech.team5.mysound.Model.Album;
+import com.aptech.team5.mysound.Model.Category;
 import com.aptech.team5.mysound.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder>{
-    Context context;
-    ArrayList<Album> arrayAlbum;
+public class ListcategorybytopicAdapter extends RecyclerView.Adapter<ListcategorybytopicAdapter.ViewHolder>{
 
-    public AlbumAdapter(Context context, ArrayList<Album> arrayAlbum) {
+    Context context;
+    ArrayList<Category> arrayCategory;
+
+    public ListcategorybytopicAdapter(Context context, ArrayList<Category> arrayCategory) {
         this.context = context;
-        this.arrayAlbum = arrayAlbum;
+        this.arrayCategory = arrayCategory;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.inline_album,parent,false);
+        View view = inflater.inflate(R.layout.inline_category_topic,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Album album = arrayAlbum.get(position);
-        holder.txtartistalbum.setText(album.getNameArtistAlbum());
-        holder.txtnamealbum.setText(album.getNameAlbum());
-        Picasso.with(context).load(album.getImageAlbum()).into(holder.imgImageAlbum);
+        Category category = arrayCategory.get(position);
+        Picasso.with(context).load(category.getImageCategory()).into(holder.imageView);
+        holder.txtnamecategory.setText(category.getNameCategory());
     }
 
     @Override
     public int getItemCount() {
-        return arrayAlbum.size();
+        return arrayCategory.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgImageAlbum;
-        TextView txtnamealbum,txtartistalbum;
-        public ViewHolder(View itemView){
+        ImageView imageView;
+        TextView txtnamecategory;
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgImageAlbum = itemView.findViewById(R.id.imageviewalbum);
-            txtnamealbum = itemView.findViewById(R.id.textviewnamealbum);
-            txtartistalbum = itemView.findViewById(R.id.textviewnameartistalbum);
+            imageView = itemView.findViewById(R.id.imageviewcategorytopic);
+            txtnamecategory = itemView.findViewById(R.id.textviewnamecategorytopic);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, SongListActivity.class);
-                    intent.putExtra("album",arrayAlbum.get(getPosition()));
+                    intent.putExtra("idcategory",arrayCategory.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
         }
     }
-
 }

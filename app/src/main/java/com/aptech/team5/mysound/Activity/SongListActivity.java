@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.aptech.team5.mysound.Adapter.SongListAdapter;
 import com.aptech.team5.mysound.Model.Advertisement;
+import com.aptech.team5.mysound.Model.Album;
+import com.aptech.team5.mysound.Model.Category;
 import com.aptech.team5.mysound.Model.PlayList;
 import com.aptech.team5.mysound.Model.Song;
 import com.aptech.team5.mysound.R;
@@ -50,6 +52,8 @@ public class SongListActivity extends AppCompatActivity {
     ArrayList<Song> arraySong;
     SongListAdapter songListAdapter;
     PlayList playList;
+    Category category;
+    Album album;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +72,55 @@ public class SongListActivity extends AppCompatActivity {
           setValueInView(playList.getName(),playList.getBackground());
           GetDataPLayList(playList.getIdPlayList());
       }
+
+        if(category != null && !category.getNameCategory().equals("")){
+            setValueInView(category.getNameCategory(),category.getImageCategory());
+            GetDataCategory(category.getIdCategory());
+        }
+        if(album != null && !album.getNameAlbum().equals("")){
+            setValueInView(album.getNameAlbum(),album.getImageAlbum());
+            GetDataAlbum(album.getIdAlbum());
+        }
     }
+
+    private void GetDataAlbum(String idAlbum) {
+        DataService dataService = APIService.getService();
+        Call<List<Song>> callback = dataService.getSongListAlbum(idAlbum);
+        callback.enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                arraySong = (ArrayList<Song>) response.body();
+                songListAdapter = new SongListAdapter(SongListActivity.this,arraySong);
+                recyclerViewsonglist.setLayoutManager(new LinearLayoutManager(SongListActivity.this));
+                recyclerViewsonglist.setAdapter(songListAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void GetDataCategory(String IdCategory) {
+        DataService dataService = APIService.getService();
+        Call<List<Song>> callback = dataService.getSongListCategory(IdCategory);
+        callback.enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                arraySong = (ArrayList<Song>) response.body();
+                songListAdapter = new SongListAdapter(SongListActivity.this,arraySong);
+                recyclerViewsonglist.setLayoutManager(new LinearLayoutManager(SongListActivity.this));
+                recyclerViewsonglist.setAdapter(songListAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+
+            }
+        });
+    }
+
 
     private void GetDataPLayList(String IdPlayList) {
         DataService dataService = APIService.getService();
@@ -157,6 +209,14 @@ public class SongListActivity extends AppCompatActivity {
 
             if(intent.hasExtra("itemplaylist")) {
                 playList = (PlayList) intent.getSerializableExtra("itemplaylist");
+            }
+
+            if(intent.hasExtra("idcategory")) {
+                category = (Category) intent.getSerializableExtra("idcategory");
+            }
+
+            if(intent.hasExtra("album")) {
+                album = (Album) intent.getSerializableExtra("album");
             }
         }
     }

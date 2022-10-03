@@ -2,8 +2,10 @@ package com.aptech.team5.mysound.Service;
 
 import com.aptech.team5.mysound.Model.Advertisement;
 import com.aptech.team5.mysound.Model.Album;
+import com.aptech.team5.mysound.Model.Category;
 import com.aptech.team5.mysound.Model.PlayList;
 import com.aptech.team5.mysound.Model.Song;
+import com.aptech.team5.mysound.Model.Topic;
 import com.aptech.team5.mysound.Model.TopicCategory;
 
 import java.util.List;
@@ -41,4 +43,22 @@ public interface DataService {
 
     @GET("listplaylist.php")
     Call<List<PlayList>> getListPlayList();
+
+    @FormUrlEncoded
+    @POST("songlist.php")
+    Call<List<Song>> getSongListCategory(@Field("IdCategory") String IdCategory);
+
+    @GET("alltopic.php")
+    Call<List<Topic>> getAllTopic();
+
+    @FormUrlEncoded
+    @POST("categorybytopic.php")
+    Call<List<Category>> getCategorybyTopic(@Field("IdTopic") String IdTopic);
+
+    @GET("allalbum.php")
+    Call<List<Album>> getallAlbum();
+
+    @FormUrlEncoded
+    @POST("songlist.php")
+    Call<List<Song>> getSongListAlbum(@Field("IdAlbum") String IdAlbum);
 }

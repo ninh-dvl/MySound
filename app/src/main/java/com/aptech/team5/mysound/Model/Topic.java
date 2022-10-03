@@ -3,8 +3,10 @@ package com.aptech.team5.mysound.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Topic {
+
+public class Topic implements Serializable {
 
 @SerializedName("IdTopic")
 @Expose

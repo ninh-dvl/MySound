@@ -1,5 +1,6 @@
 package com.aptech.team5.mysound.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aptech.team5.mysound.Activity.ListAlbumActivity;
 import com.aptech.team5.mysound.Adapter.AlbumAdapter;
 import com.aptech.team5.mysound.Model.Album;
 import com.aptech.team5.mysound.R;
@@ -36,6 +38,13 @@ public class Fragment_Album extends Fragment {
         view = inflater.inflate(R.layout.fragment_album,container,false);
         recyclerViewAlbum= view.findViewById(R.id.recyclerviewAlbum);
         txtseemorealbum = view.findViewById(R.id.textviewseemorealbum);
+        txtseemorealbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ListAlbumActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
