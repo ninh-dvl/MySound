@@ -12,7 +12,7 @@ import com.aptech.team5.mysound.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-    //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
+    //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
     TabLayout tabLayout;
     ViewPager viewPager;
     @Override
