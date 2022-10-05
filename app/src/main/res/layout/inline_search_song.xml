@@ -39,7 +39,7 @@
         android:maxWidth="250dp"
         android:singleLine="true"
         android:text="Ca sĩ"
-        android:textColor="#6e6c6c"
+        android:textColor="#fff"
         android:textSize="19sp" />
 
     <ImageView

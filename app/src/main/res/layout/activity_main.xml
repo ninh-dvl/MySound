@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#160f19"
     tools:context=".Activity.MainActivity">
 
     <androidx.viewpager.widget.ViewPager
@@ -19,7 +20,7 @@
         app:tabIndicatorColor="#FF06A2DF"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#FF06A2DF"
-        app:tabTextColor="#000"
+        app:tabTextColor="#fff"
         app:tabIndicatorHeight="2dp"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"

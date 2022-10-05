@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#160f19">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textviewtitleplaylist"
         android:text="TOP 100"
-        android:textColor="#3e3b3b"
+        android:textColor="#fff"
         android:textSize="30sp"
         android:gravity="center"
         android:layout_marginTop="15dp"
@@ -28,7 +29,7 @@
         android:layout_below="@id/listviewplaylist"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#EFEFEF"
+        android:background="#232323"
         android:drawableLeft="@drawable/seemore"
         android:drawablePadding="10dp"
         android:paddingLeft="5dp"
@@ -36,6 +37,6 @@
         android:paddingBottom="10dp"
         android:text="See more playlists"
         android:textStyle="bold"
-        android:textColor="#0a0a0a"
+        android:textColor="#fff"
         android:textSize="19sp" />
 </RelativeLayout>

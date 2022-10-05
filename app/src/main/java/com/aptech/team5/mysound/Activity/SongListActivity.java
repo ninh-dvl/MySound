@@ -185,6 +185,8 @@ public class SongListActivity extends AppCompatActivity {
     private void Init() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setCollapseIcon(R.drawable.iconback);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

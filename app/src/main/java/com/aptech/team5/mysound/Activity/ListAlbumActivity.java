@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -58,6 +59,8 @@ public class ListAlbumActivity extends AppCompatActivity {
         setSupportActionBar(toolbarAllAlbum);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("All Album");
+        toolbarAllAlbum.setTitleTextColor(Color.WHITE);
+        toolbarAllAlbum.setCollapseIcon(R.drawable.iconback);
         toolbarAllAlbum.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

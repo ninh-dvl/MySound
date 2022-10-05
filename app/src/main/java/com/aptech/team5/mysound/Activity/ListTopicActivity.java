@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -59,6 +60,8 @@ public class ListTopicActivity extends AppCompatActivity {
         setSupportActionBar(toolbarAllTopic);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("All Topic");
+        toolbarAllTopic.setTitleTextColor(Color.WHITE);
+        toolbarAllTopic.setCollapseIcon(R.drawable.iconback);
         toolbarAllTopic.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

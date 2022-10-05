@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#160f19">
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_gravity="center"
@@ -19,7 +20,7 @@
 
     <TextView
         android:textSize="15dp"
-        android:textColor="#060606"
+        android:textColor="#fff"
         android:text="Nhac Viet hot trong thang"
         android:gravity="left"
         android:maxWidth="180dp"
@@ -29,6 +30,7 @@
 
     <TextView
         android:textSize="13sp"
+        android:textColor="#fff"
         android:text="Various Artists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

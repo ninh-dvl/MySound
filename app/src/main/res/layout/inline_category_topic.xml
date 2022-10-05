@@ -7,6 +7,7 @@
     android:layout_margin="5dp">
 
     <LinearLayout
+        android:background="#160f19"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -24,7 +25,7 @@
 
        <TextView
            android:textSize="15sp"
-           android:textColor="#000000"
+           android:textColor="#fff"
            android:text="Music"
            android:maxWidth="180dp"
            android:gravity="left"
@@ -37,6 +38,7 @@
         <TextView
             android:text="Various Artists"
             android:textSize="13sp"
+            android:textColor="#fff"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"

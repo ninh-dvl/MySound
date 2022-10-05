@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -62,6 +63,8 @@ public class ListCategoryByTopicActivity extends AppCompatActivity {
         setSupportActionBar(toolbarcategorybytopic);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(topic.getNameTopic());
+        toolbarcategorybytopic.setTitleTextColor(Color.WHITE);
+        toolbarcategorybytopic.setCollapseIcon(R.drawable.iconback);
         toolbarcategorybytopic.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

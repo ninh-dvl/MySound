@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#160f19"
         >
 
         <ImageView
@@ -23,7 +24,7 @@
             android:scaleType="fitXY" />
 
         <TextView
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:maxWidth="250dp"
             android:textSize="20sp"
             android:text="Thương em là điều anh không thể ngờ"
@@ -35,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:textColor="#9e9797"
+            android:textColor="#fff"
             android:textSize="15sp"
             android:maxWidth="200dp"
             android:text="Noo Phước Thịnh"
