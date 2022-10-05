@@ -20,7 +20,7 @@
             android:text="See more"
             android:textSize="18sp"
             android:layout_alignParentRight="true"
-            android:textColor="#913677"
+            android:textColor="#FF06A2DF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>

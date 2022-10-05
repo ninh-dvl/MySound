@@ -68,7 +68,7 @@ public class Fragment_Topic_Category extends Fragment {
 //                Log.d("test", String.valueOf(topicArrayList.addAll(topicCategory.getTopic())));
                 LinearLayout linearLayout = new LinearLayout(getActivity());
                 linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(700,250);
+                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(780,350);
                 layout.setMargins(10,20,10,30);
                 for (int i = 0; i < (topicArrayList.size()); i++){
                     CardView cardView = new CardView(getActivity());

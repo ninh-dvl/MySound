@@ -26,10 +26,8 @@
            android:textSize="15sp"
            android:textColor="#000000"
            android:text="Music"
-           android:maxWidth="200dp"
-           android:lines="1"
+           android:maxWidth="180dp"
            android:gravity="left"
-           android:ellipsize="end"
            android:id="@+id/textviewnamecategorytopic"
            android:paddingRight="5dp"
            android:paddingLeft="5dp"
@@ -37,7 +35,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"/>
         <TextView
-            android:text="Artist"
+            android:text="Various Artists"
             android:textSize="13sp"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"

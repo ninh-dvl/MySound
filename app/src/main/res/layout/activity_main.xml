@@ -16,9 +16,9 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
-        app:tabIndicatorColor="#a845de"
+        app:tabIndicatorColor="#FF06A2DF"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="#a845de"
+        app:tabSelectedTextColor="#FF06A2DF"
         app:tabTextColor="#000"
         app:tabIndicatorHeight="2dp"
         android:background="@android:color/transparent"

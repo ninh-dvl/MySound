@@ -11,7 +11,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
-        android:scaleType="fitXY"></ImageView>
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/textviewsearchtenbaihat"
@@ -25,7 +25,7 @@
         android:singleLine="true"
         android:text="Tên bài hát"
         android:textColor="#ffffff"
-        android:textSize="18sp"></TextView>
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textviewsearchcasi"
@@ -40,7 +40,7 @@
         android:singleLine="true"
         android:text="Ca sĩ"
         android:textColor="#6e6c6c"
-        android:textSize="19sp"></TextView>
+        android:textSize="19sp" />
 
     <ImageView
         android:id="@+id/imagesearchluotthich"
@@ -49,6 +49,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
-        android:src="@drawable/heart"></ImageView>
+        android:src="@drawable/heart" />
 
 </RelativeLayout>

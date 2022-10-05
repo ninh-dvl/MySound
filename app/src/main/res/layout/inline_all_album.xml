@@ -23,9 +23,6 @@
         android:text="Nhac Viet hot trong thang"
         android:gravity="left"
         android:maxWidth="180dp"
-        android:lines="2"
-        android:maxLines="2"
-        android:ellipsize="end"
         android:id="@+id/textviewallalbum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

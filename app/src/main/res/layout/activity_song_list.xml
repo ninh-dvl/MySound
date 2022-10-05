@@ -45,7 +45,7 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        app:backgroundTint="#a845de"
+        app:backgroundTint="#FF06A2DF"
         android:src="@drawable/romanticmusic"
         android:scaleType="fitXY"
         app:fabSize="normal"
