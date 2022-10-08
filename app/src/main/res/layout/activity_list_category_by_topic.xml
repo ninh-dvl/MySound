@@ -11,7 +11,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarcategorybytopic"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/iconbacktest"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewcategorybytopic"
         android:layout_width="match_parent"

@@ -44,9 +44,6 @@
             <SeekBar
                 android:id="@+id/seekbarsong"
                 android:layout_weight="9"
-                android:progressDrawable="@color/white"
-                android:maxHeight="3dp"
-                android:minHeight="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView

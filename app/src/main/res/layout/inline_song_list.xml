@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    android:layout_marginBottom="10dp"
     android:elevation="5dp"
     >
     <RelativeLayout
-        android:background="#160f19"
+        android:background="#252525"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
